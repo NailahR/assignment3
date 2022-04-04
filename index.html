@@ -15,6 +15,28 @@
  <script src="https://kit.fontawesome.com/ee46bfafac.js" crossorigin="anonymous"></script>
     <!--CSS-->
     <link rel="stylesheet" href="css/styles.css">
+    <!--apexcharts-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <!--AOS-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!--leaflet maps-->
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""
+  ></script>
+  <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js" defer></script>
   </head>
 <body>
     <!--navbar-->
@@ -78,18 +100,18 @@
         </button>
       </div>
       <!--Article-->
-     <div class="text-center mt-5 slide-in-left"><h1>TOP R&B ARTISTS TO WATCH IN 2022</h1></div> 
+     <div class="text-center mt-5 slide-in-left"><h1 id="article-title">TOP R&B ARTISTS TO WATCH IN 2022</h1></div> 
      <div class="container text-center mt-1"><h3>The definition of R&B has changed so much in the last decade. The genre now encompasses a broad spectrum of artists, pushing the boundaries of music with their melodic masterpieces. These artists are sure to have a significant impact on the rhythm and blues scene in 2022.</h3>
     </div> 
       <div class="container p-2">
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-4" data-aos="flip-left">
           <img src="imgs/brent.jpg" alt="brent faiyaz" style="width:100%">
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4" data-aos="flip-left">
           <img src="imgs/vic.jpg" alt="victoria monet" style="width:100%">
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4" data-aos="flip-left">
           <img src="imgs/kaash.jpg" alt="kaash paige" style="width:100%">
         </div>
       </div>
@@ -117,9 +139,13 @@
       </div>
     </div>
     <!--popular video links-->
-    <div class="text-center mt-5"><h1>LATEST NEWS</h1></div>
-    <div class="container text-center mt-2"><h3>Keep up to date with everything going on in the culture from new r&b and hip hop drops, to movies, TV shows, sports news and predictions, television preformances and more! SoundingBoard has it all here for you in one place. </h3></div>
-    <div class="container p-2">
+    <section id="news-section">
+      <div class="text-center mt-5"><h1 id="latest-news">LATEST NEWS</h1></div>
+      <div class="clickTarget container text-center mt-2">
+        <button id="target">Click Me</button>
+      </div>
+    <div class="container text-center mt-2" id="addContent"><h3>Keep up to date with everything going on in the culture from new r&b and hip hop drops, to movies, TV shows, sports news and predictions, television preformances and more! SoundingBoard has it all here for you in one place. </h3></div>
+    <div class="container p-2" data-aos="fade-left">
       <div class="row">
         <div class="col-md-4">
           <div class="card" style="width: 18rem;">
@@ -146,13 +172,50 @@
             <img src="imgs/halftime.jpeg" class="card-img-top" alt="kanye doc cover">
             <div class="card-body">
               <h5 class="card-title">SUPERBOWL HALFTIME SHOW</h5>
-              <p class="card-text">From Mary J Blige to Snoop Dog, this years halftime show was one to remember. Check it out here!</p>
+              <p class="card-text" id="ht-text">From Mary J Blige to Snoop Dog, this years halftime show was one to remember. Check it out here!</p>
               <a href="https://www.youtube.com/watch?v=gdsUKphmB3Y" class="btn btn-primary">WATCH</a>
             </div>
           </div>
         </div>
+        <div class="text-center mt-5"><h1>DONDA vs. CLB</h1>
+          <h3>View the results of the survey we conducted from our members of which of the two iconic albums they preferred.</h3>
+        <div id="chart"></div>
+        <h3>Looks like CLB wins!<br> Sign up for our email list to be a part of the next survey.</h3>
+      </div>
+        <div class="container text-center mt-5">
+          <button id ="button">Click Me</button>
+        </div>
       </div>
     </div>
+  </section>
+
+    <div class="text-center mt-5 invert">
+      <h1>UPCOMING EVENTS</h1>
+    </div>
+    <div class="container text-center mt-2"><h3 id="emptyp"></h3>
+    </div>
+    <div id="map"></div>
+    <div class="container text-center mt-5" id="eventslist">
+<p></p>
+    </div>
+
+    <div class="offsite-container">
+      <nav class="nav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">R&B</a></li>
+          <li><a href="#">Hip Hop</a></li>
+          <li><a href="#">Sports</a></li>
+          <li><a href="#">Fashion</a></li>
+          <li><a href="#">Culture</a></li>
+        </ul>
+      </nav>
+    </div>
+  
+    <div class="container text-center mt-5 margint">
+      <button id ="menubutton">Menu Options</button>
+    </div>
+
   </main>
   <!--footer-->
     <footer class="footer-section">
@@ -193,9 +256,11 @@
           </div>
       </div>
       <div class="text-center mt-5">
-          <p>© 2022 SoundingBoard LLC</p>
+          <p id="copyright">© 2022 SoundingBoard LLC</p>
       </div>
   </footer>
+  <script>AOS.init();</script>
+  <script src="../js/leaflet-maps.js"></script>
     <!--bootstrap javascript bundle-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>  
 </body>

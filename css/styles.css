@@ -53,6 +53,78 @@ h5{margin-top: 10px;
     font-size: 50px; 
     color: red;  
    }
+
+   .invert{
+     color:white;
+     background-color: black;
+   }
+
+   .darkmode{
+     background-color: rgb(167, 167, 167);
+   }
+
+   button {
+     background-color: red;
+   }
+
+   .offsite-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -14rem;
+    width: 14rem;
+    background-color: black;
+    color: white;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .offsite-is-open .site-container,
+  .offsite-is-open .offsite-container {
+    transform: translateX(14rem);
+  }
+  
+  .site-container {
+    padding-top: 3rem;
+    transition: transform 0.3s ease-out;
+  }
+  /* Navigation */
+  .nav {
+    margin-top: 6rem;
+  }
+  
+  .nav a {
+    display: block;
+    margin: 0;
+    padding: 0.5rem 3rem;
+    color: red;
+    text-decoration: none;
+  }
+  
+  .nav a:hover {
+    background-color: #eaf0f3;
+    color: #031129;
+  }
+  
+  .nav a:hover,
+  .nav a:focus,
+  .nav a:active {
+    color: #031129;
+  }
+
+  #map {
+    height: 40vh;
+    width: 40vw;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+
+  #chart,
+#barChart,
+#polarChart {
+  max-width: 650px;
+  margin: 35px auto;
+}
+
    
    .slide-in-left {
     -webkit-animation: slide-in-left 1.0s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
